@@ -34,4 +34,36 @@ export class SaintProvider {
     );
   }
 
+   searchSantiByName(Nome: string){
+     if(this.santi){
+      return Promise.resolve(this.santi);
+    }
+    return new Promise (
+      resolve => {
+        this.http.get("http://santieicone.azurewebsites.net/search/" + Nome )
+        .map(res  => res.json() )
+        .subscribe(data => {
+          this.santi = data;
+          resolve(this.santi);
+        });
+      }
+    );
+  }
+
+  searchSantiByDate(Month: string, Day: string){
+     if(this.santi){
+      return Promise.resolve(this.santi);
+    }
+    return new Promise (
+      resolve => {
+        this.http.get("http://santieicone.azurewebsites.net/search/" + Month + "" + Day)
+        .map(res  => res.json() )
+        .subscribe(data => {
+          this.santi = data;
+          resolve(this.santi);
+        });
+      }
+    );
+  }
+
 }
