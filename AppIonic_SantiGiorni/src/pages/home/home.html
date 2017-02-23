@@ -5,13 +5,19 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <h2>Ricerca per data!</h2>
+  <button ion-button color="secondary" (click)="CercaConData()">Cerca</button>
+   <ion-item>
+    <ion-label>Mese</ion-label>
+    <ion-input type="text" [(ngModel)]="Mese"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label>Giorno</ion-label>
+    <ion-input type="text" [(ngModel)]="Giorno"></ion-input>
+  </ion-item>
+   <ion-list>
+      <ion-item *ngFor="let santo of santi">
+        {{ santo.Nome }}
+      </ion-item>
+    </ion-list>
 </ion-content>

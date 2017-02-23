@@ -56,7 +56,7 @@ export class SaintProvider {
     }
     return new Promise (
       resolve => {
-        this.http.get("http://santieicone.azurewebsites.net/search/" + Month + "" + Day)
+        this.http.get("http://santieicone.azurewebsites.net/saints/" + Month + "/" + Day)
         .map(res  => res.json() )
         .subscribe(data => {
           this.santi = data;
