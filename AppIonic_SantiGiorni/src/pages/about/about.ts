@@ -8,8 +8,17 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController) {
+  santi: any[];
 
+  constructor(public navCtrl: NavController) {
+    this.santi = [];
+    for(let i = 0; i< 10 ; i++) {
+      this.santi.push({Nome : "Santo " + i, id : i});
+    }
+  }
+
+  SaintSelected(santo){
+    alert ("Oggi è " + santo.Nome);
   }
 
 }
